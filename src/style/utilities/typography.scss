@@ -1,0 +1,35 @@
+@import '../settings/colors';
+@import '../mixins/size';
+@import '../mixins/typography';
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-lowercase {
+  text-transform: lowercase;
+}
+
+.u-nocase {
+  text-transform: none;
+}
+
+.u-bold {
+  @include bold;
+}
+
+.u-text-shadow {
+  text-shadow: 0 0 __px-to-rem(10) rgba($black, 0.8);
+}
+
+.u-underline {
+  border-bottom: 1px solid currentColor;
+}
+
+.u-strikethrough {
+  text-decoration: line-through;
+}
+
+.u-text-center {
+  text-align: center;
+}

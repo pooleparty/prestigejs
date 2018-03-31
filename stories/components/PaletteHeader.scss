@@ -1,0 +1,29 @@
+@import '../mixins';
+
+.palette__header {
+  margin-bottom: __px-to-rem(10);
+  padding: __px-to-rem(20);
+  box-shadow: 2px 2px 10px -2px rgba($dark-grey, 0.2);
+  cursor: default;
+}
+
+.palette__name {
+  margin-bottom: __px-to-rem(20);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  :first-child {
+    font-size: __px-to-rem(20);
+  }
+
+  :last-child {
+    font-size: __px-to-rem(14);
+    opacity: 0.7;
+    cursor: auto;
+  }
+}
+
+.palette__header--inverted {
+  color: $white;
+}

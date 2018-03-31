@@ -1,0 +1,32 @@
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40% {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  60% {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes dropdown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@mixin dropdown-animation() {
+  transform: translateY(-100%);
+  animation: dropdown 500ms forwards;
+}

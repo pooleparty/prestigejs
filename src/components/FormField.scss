@@ -1,0 +1,10 @@
+@import '../style/mixins/size';
+
+.form-field {
+  margin-bottom: __px-to-rem(34);
+}
+
+.form-field__label {
+  display: inline-block;
+  margin-bottom: __px-to-rem(12);
+}

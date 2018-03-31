@@ -1,0 +1,87 @@
+@import "../style/settings/colors";
+@import "../style/mixins/size";
+@import "../style/mixins/positioning";
+
+$form-check-size: 24px;
+$form-check-border-width: 2px;
+
+.form-check__label {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.form-check__decorator {
+  position: relative;
+  margin-right: __px-to-rem(8);
+  width: $form-check-size;
+  height: $form-check-size;
+  box-sizing: border-box;
+  border: $form-check-border-width solid $light-grey;
+  color: $white;
+  transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out,
+    box-shadow 200ms ease-in-out;
+}
+
+.form-check__input {
+  @include offscreen;
+}
+
+:active + .form-check__decorator,
+:focus + .form-check__decorator {
+  box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+}
+
+:checked + .form-check__decorator {
+  border-color: $blue;
+  background-color: $blue;
+}
+
+/* stylelint-disable selector-max-specificity  */
+:hover:not(:checked):not([disabled]) + .form-check__decorator {
+  border-color: $blue-200;
+}
+/* stylelint-enable */
+
+.form-check--disabled .form-check__label {
+  color: $light-grey;
+  cursor: not-allowed;
+}
+
+[disabled] + .form-check__decorator {
+  box-shadow: none;
+  border-color: $light-grey;
+  background-color: rgba($light-grey, 0.2);
+  color: $light-grey;
+  cursor: not-allowed;
+}
+
+[type="checkbox"] + .form-check__decorator {
+  border-radius: 0.2em;
+}
+
+[type="checkbox"]:checked + .form-check__decorator::before {
+  @include absolute-center;
+  content: "";
+  height: 60%;
+  width: 30%;
+  border-width: $form-check-border-width;
+  border-color: currentcolor;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+[type="radio"] + .form-check__decorator {
+  border-radius: 50%;
+}
+
+[type="radio"]:checked + .form-check__decorator::before {
+  @include absolute-center;
+  content: "";
+  width: 50%;
+  height: 50%;
+  border-radius: inherit;
+  background-color: currentcolor;
+}

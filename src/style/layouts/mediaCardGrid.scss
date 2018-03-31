@@ -1,0 +1,27 @@
+@import '../settings/vars';
+@import '../mixins/layout';
+@import '../mixins/mediaQuery';
+@import '../mixins/size';
+
+.media-card-grid {
+  @include responsive-flex-grid($__media-card-grid-breakpoint);
+  align-items: center;
+
+  @include media-query($__media-card-grid-breakpoint) {
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  > * {
+    margin-bottom: __px-to-rem(50);
+
+    @include media-query($__media-card-grid-breakpoint) {
+      margin-right: __px-to-rem(35);
+      margin-bottom: 0;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

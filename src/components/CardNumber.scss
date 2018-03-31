@@ -1,0 +1,16 @@
+@import '../style/settings/colors';
+@import '../style/mixins/size';
+@import '../style/mixins/typography';
+
+.card__number {
+  @include bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: __px-to-rem($__card-number-diameter);
+  height: __px-to-rem($__card-number-diameter);
+  color: $white;
+  border-radius: __px-to-rem($__card-number-diameter/2);
+  background-color: $primary;
+  margin-top: __px-to-rem((($__card-number-diameter/2) - $__card-label-y-offset) * -1);
+}

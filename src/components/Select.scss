@@ -1,0 +1,95 @@
+@import "../style/settings/colors";
+@import "../style/mixins/size";
+
+.select {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.select__input {
+  position: relative;
+  z-index: 1;
+  padding: __px-to-rem(19) __px-to-rem(52) __px-to-rem(17) __px-to-rem(15);
+  width: inherit;
+  font-family: inherit;
+  font-size: __px-to-rem(14);
+  line-height: 1.15;
+  color: inherit;
+  appearance: none;
+  outline: none;
+  background: none;
+  border: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.select__input:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 $black;
+}
+
+.select__input::-ms-expand {
+  display: none;
+}
+
+.select--placeholder-shown .select__input {
+  color: $light-grey-700;
+}
+
+.select__decorator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid $light-grey;
+  border-radius: __px-to-rem(2);
+  background-color: $white;
+  transition: border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.select__decorator::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: __px-to-rem(20);
+  bottom: 0;
+  margin: auto;
+  width: __px-to-rem(12);
+  height: __px-to-rem(8);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTIgOCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODI4MjgyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik02IDYuNTA4TC45ODQgMS40OTJNNiA2LjUwOGw1LjAxNi01LjAxNiIvPjwvc3ZnPg==);
+}
+
+.select--valid .select__decorator {
+  border-color: $green;
+}
+
+.select--invalid .select__decorator {
+  border-color: $red;
+}
+
+.select__input:focus + .select__decorator {
+  border-color: $blue;
+  box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+}
+
+.select--valid .select__input:focus + .select__decorator {
+  border-color: $green;
+  box-shadow: 0 0 0 0.2rem rgba($green, 0.25);
+}
+
+.select--invalid .select__input:focus + .select__decorator {
+  border-color: $red;
+  box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
+}
+
+.select__input[disabled] {
+  background-color: $light-grey-200;
+  color: $light-grey-700;
+  border-color: $light-grey;
+  cursor: not-allowed;
+}

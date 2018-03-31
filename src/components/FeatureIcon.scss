@@ -1,0 +1,22 @@
+@import "../style/settings/colors";
+@import "../style/mixins/size";
+
+.feature__icon {
+  display: inline-block;
+  margin-bottom: __px-to-rem(20);
+  line-height: 1;
+  color: $blue;
+}
+
+.feature__icon--circle {
+  margin-bottom: __px-to-rem(30);
+  padding: __px-to-rem(18);
+  color: $white;
+  border-radius: 50%;
+  background-color: $blue;
+}
+
+.feature--inline .feature__icon {
+  margin-right: __px-to-rem(28);
+  margin-bottom: 0;
+}

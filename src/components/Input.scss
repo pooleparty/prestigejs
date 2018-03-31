@@ -1,0 +1,67 @@
+@import '../style/settings/colors';
+@import '../style/mixins/size';
+
+.input {
+  padding: __px-to-rem(18) __px-to-rem(14) __px-to-rem(16);
+  width: 100%;
+  font-size: __px-to-rem(14);
+  font-family: inherit;
+  outline: none;
+  border: 1px solid;
+  border-radius: __px-to-rem(2);
+  color: inherit;
+  transition: border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+
+  &::placeholder {
+    color: $light-grey-700;
+  }
+}
+
+.input[type="textarea"] {
+  line-height: 1.3;
+}
+
+.input {
+  border-color: $light-grey;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+  }
+}
+
+.input--valid {
+  border-color: $green;
+
+  &:focus {
+    border-color: $green;
+    box-shadow: 0 0 0 0.2rem rgba($green, 0.25);
+  }
+}
+
+.input--invalid {
+  border-color: $red;
+
+  &:focus {
+    border-color: $red;
+    box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
+  }
+}r
+
+.input[readonly] {
+  &:focus {
+    border-color: $light-grey-600;
+    box-shadow: 0 0 0 0.2rem rgba($light-grey-600, 0.25);
+  }
+}
+
+.input[readonly],
+.input[disabled] {
+  background-color: $light-grey-200;
+  color: $light-grey-700;
+}
+
+.input[disabled] {
+  border-color: $light-grey;
+  cursor: not-allowed;
+}

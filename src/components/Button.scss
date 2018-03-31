@@ -1,0 +1,146 @@
+@import "../style/settings/colors";
+@import "../style/mixins/size";
+
+.button {
+  display: inline-block;
+  overflow: hidden;
+  padding: __px-to-rem(16) __px-to-rem(30) __px-to-rem(14);
+  font-family: inherit;
+  font-size: __px-to-rem(14);
+  line-height: 1.6428571429;
+  user-select: none;
+  transition: background-color 100ms, border-color 100ms;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  outline: none;
+  background: none;
+  touch-action: manipulation;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &[disabled] {
+    cursor: default;
+    color: $white;
+    border-color: $light-grey;
+    background-color: $light-grey;
+    pointer-events: none;
+  }
+}
+
+.button--short {
+  padding-top: __px-to-rem(11);
+  padding-bottom: __px-to-rem(9);
+}
+
+.button--tiny {
+  font-size: __px-to-rem(11);
+  padding-top: __px-to-rem(6);
+  padding-bottom: __px-to-rem(4);
+}
+
+.button--thin {
+  padding-right: __px-to-rem(20);
+  padding-left: __px-to-rem(20);
+}
+
+.button--wide {
+  padding-right: __px-to-rem(40);
+  padding-left: __px-to-rem(40);
+}
+
+@mixin _button($type) {
+  color: $white;
+  border-color: $type;
+  background-color: $type;
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    color: $white;
+    border-color: indexed-color($type, 400);
+    background-color: indexed-color($type, 400);
+  }
+
+  &:active:not([disabled]) {
+    color: $white;
+    border-color: indexed-color($type, 600);
+    background-color: indexed-color($type, 600);
+  }
+}
+
+@mixin _button-hollow($type) {
+  color: $type;
+  border-color: $type;
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    color: $white;
+    background-color: $type;
+  }
+
+  &:active:not([disabled]) {
+    color: $white;
+    border-color: indexed-color($type, 600);
+    background-color: indexed-color($type, 600);
+  }
+}
+
+.button--default {
+  @include _button($default);
+}
+
+.button--primary {
+  @include _button($primary);
+}
+
+.button--success {
+  @include _button($success);
+}
+
+.button--warning {
+  @include _button($warning);
+}
+
+.button--error {
+  @include _button($error);
+}
+
+.button--hollow-default {
+  @include _button-hollow($default);
+}
+
+.button--hollow-primary {
+  @include _button-hollow($primary);
+}
+
+.button--hollow-success {
+  @include _button-hollow($success);
+}
+
+.button--hollow-warning {
+  @include _button-hollow($warning);
+}
+
+.button--hollow-error {
+  @include _button-hollow($error);
+}
+
+.button--block {
+  display: block;
+  width: 100%;
+}
+
+.button--block + .button--block {
+  margin-top: __px-to-rem(10);
+}

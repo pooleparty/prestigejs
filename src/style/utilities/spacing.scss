@@ -1,0 +1,39 @@
+@import '../mixins/spacing';
+
+/*
+ * Generates utility classes for spacing out elements for margin and padding
+ * Generates css selectors following the pattern:
+ *
+  u-[m|p][a|v|t|b|l|r]-[#] {
+    [margin|padding]-[top|bottom|left|right]: #px
+  }
+
+  In this case, 'm' = margin, 'p' = padding
+  a = all (top, bottom, left, right)
+  v = vertical (top and bottom)
+  h = horizontal (left and right)
+  l = left
+  r = right
+  t = top
+  b = bottom
+
+  Utility classes are generated for sizes 0 to 50 in increments of 10
+  e.g.
+
+  .u-mh-20 {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .u-pt-10 {
+    padding-top: 10px
+  }
+
+ */
+
+$__spacer-index: 0;
+
+@while $__spacer-index <= 50 {
+  @include __generateSizeUtilityClassesForSize($__spacer-index);
+  $__spacer-index: $__spacer-index + 10;
+}

@@ -1,0 +1,22 @@
+@import '../style/mixins/size';
+
+.card__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: __px-to-rem($__card-label-y-offset * -1);
+}
+
+.card__label--left {
+  align-items: flex-start;
+  transform: translateX(__px-to-rem($__card-label-x-offset * -1));
+}
+
+.card__label--right {
+  align-items: flex-end;
+  transform: translateX(__px-to-rem($__card-label-x-offset));
+}
+
+.card__label--justify {
+  align-items: stretch;
+}

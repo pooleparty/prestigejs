@@ -1,0 +1,8 @@
+@import '../style/mixins/size';
+
+.item-list {
+  margin: 0 auto;
+  padding: 0;
+  max-width: __px-to-rem(410);
+  list-style-type: none;
+}

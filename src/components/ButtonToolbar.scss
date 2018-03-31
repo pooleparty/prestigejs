@@ -1,0 +1,7 @@
+@import '../style/mixins/size';
+
+.button-toolbar {
+  .button:not(:last-child) {
+    margin-right: __px-to-rem(10);
+  }
+}

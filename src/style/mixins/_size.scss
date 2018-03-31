@@ -1,0 +1,21 @@
+@import '../settings/vars';
+
+@function __strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function __px-to-rem($size, $base: $base-font-size) {
+  $pxUnitless: __strip-unit($size);
+  // If px value is less than 5, return px value
+  // This is done to avoid wonky rounding with
+  // smaller values
+  @if abs($pxUnitless) <= 5 {
+    @return #{$pxUnitless}px;
+  }
+
+  @return #{$pxUnitless / $base}rem;
+}

@@ -1,0 +1,30 @@
+@import '../style/settings/colors';
+@import '../style/mixins/boxModel';
+@import '../style/mixins/decoration';
+@import '../style/mixins/size';
+
+.card {
+  @include bordered;
+  @include box-shadow;
+  display: inline-block;
+  position: relative;
+  border-radius: __px-to-rem(4);
+  background-color: $white;
+}
+
+.card--labeled {
+  margin-top: __px-to-rem($__card-top-margin);
+}
+
+.card--rounder {
+  border-radius: __px-to-rem(10);
+}
+
+.card--dark {
+  background-color: $blue-800;
+  color: $white;
+}
+
+.card--selected {
+  border-color: $blue;
+}

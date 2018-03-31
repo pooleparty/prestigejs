@@ -1,0 +1,25 @@
+@import '../mixins/positioning';
+
+.u-absolute-fill {
+  @include absolute-fill;
+}
+
+.u-absolute-center {
+  @include absolute-center;
+}
+
+.u-absolute-top {
+  @include absolute-top;
+}
+
+.u-absolute-right {
+  @include absolute-right;
+}
+
+.u-absolute-bottom {
+  @include absolute-bottom;
+}
+
+.u-absolute-left {
+  @include absolute-left;
+}

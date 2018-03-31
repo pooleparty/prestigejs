@@ -1,0 +1,21 @@
+.breadcrumb-item {
+  display: inline-block;
+  list-style: none;
+}
+
+.breadcrumb-item a {
+  color: currentColor;
+}
+
+.breadcrumb-item__divider {
+  display: none;
+  margin: 0 0.5em;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  stroke: currentColor;
+}
+
+.breadcrumb-item + .breadcrumb-item > .breadcrumb-item__divider {
+  display: inline-block;
+}

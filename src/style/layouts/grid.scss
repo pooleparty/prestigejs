@@ -1,0 +1,81 @@
+$num-columns: 12;
+
+$xs-min: 30;
+$sm-min: 48;
+$md-min: 64;
+$lg-min: 75;
+
+$gutter-width: 1.25rem;
+$half-gutter-width: $gutter-width / 2;
+$half-gutter-compensation: $half-gutter-width * -1;
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  margin-right: $half-gutter-compensation;
+  margin-left: $half-gutter-compensation;
+}
+
+@for $i from 1 through $num-columns {
+  .col-xs-#{$i} {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    padding-right: $half-gutter-width;
+    padding-left: $half-gutter-width;
+  }
+
+  .col-xs-#{$i} {
+    flex-basis: percentage($i / $num-columns);
+    max-width: percentage($i / $num-columns);
+  }
+}
+
+@media only screen and (min-width: #{$sm-min}rem) {
+  @for $i from 1 through $num-columns {
+    .col-sm-#{$i} {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: $half-gutter-width;
+      padding-left: $half-gutter-width;
+    }
+
+    .col-sm-#{$i} {
+      flex-basis: percentage($i / $num-columns);
+      max-width: percentage($i / $num-columns);
+    }
+  }
+}
+
+@media only screen and (min-width: #{$md-min}rem) {
+  @for $i from 1 through $num-columns {
+    .col-md-#{$i} {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: $half-gutter-width;
+      padding-left: $half-gutter-width;
+    }
+
+    .col-md-#{$i} {
+      flex-basis: percentage($i / $num-columns);
+      max-width: percentage($i / $num-columns);
+    }
+  }
+}
+
+@media only screen and (min-width: #{$lg-min}rem) {
+  @for $i from 1 through $num-columns {
+    .col-lg-#{$i} {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: $half-gutter-width;
+      padding-left: $half-gutter-width;
+    }
+
+    .col-lg-#{$i} {
+      flex-basis: percentage($i / $num-columns);
+      max-width: percentage($i / $num-columns);
+    }
+  }
+}

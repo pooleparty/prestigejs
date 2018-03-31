@@ -1,0 +1,29 @@
+@import '../style/mixins/size';
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: __px-to-rem(14);
+  min-height: __px-to-rem(52);
+
+  &--vertical {
+    flex-direction: column;
+    justify-items: center;
+    align-items: flex-start;
+  }
+
+  .form-check:not(:last-child) {
+    margin-right: __px-to-rem(20);
+    margin-bottom: __px-to-rem(10);
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  .form-group {
+    .form-check,Í
+    .form-check:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}

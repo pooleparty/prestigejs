@@ -1,0 +1,6 @@
+@import '../style/mixins/typography';
+
+.feature__title {
+  @include __type(t3);
+  font-weight: normal;
+}

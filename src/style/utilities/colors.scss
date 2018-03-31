@@ -1,0 +1,82 @@
+@import '../settings/colors';
+
+@mixin __generate-text-color-opacities($value, $modifier: '', $create-base: false) {
+  $name: "";
+  $lightnesses: 90, 80, 70, 60, 50;
+
+  @if ($modifier != '') {
+    $name: #{"-" + $modifier};
+  }
+
+  @if ($create-base == true) {
+    .u-color#{"" + $name} {
+      color: $value;
+    }
+  }
+
+  @each $lightness in $lightnesses {
+    $selector: #{'.u-color#{"" + $name}-#{"" + $lightness}'};
+
+    #{$selector} {
+      color: rgba($value, $lightness * 0.01);
+
+      // This will mute the link color by the same numeric value as the parent element
+      a {
+        color: rgba($blue, $lightness * 0.01);
+      }
+    }
+  }
+}
+
+/*
+ * Generates utility classes for adding alpha values to the inverted
+ * text color (white)
+ *
+  This will generate the following CSS classes:
+  .u-color-inverted-90 {}
+  .u-color-inverted-80 {}
+  .u-color-inverted-70 {}
+  .u-color-inverted-60 {}
+  .u-color-inverted-50 {}
+
+  The number at the end corresponds to the alpha value applied. e.g.
+
+  .u-color-inverted-90 {
+    color: rgba(255, 255, 255, 0.9)
+  }
+
+  .u-color-inverted-50 {
+    color: rgba(255, 255, 255, 0.5)
+  }
+
+  Additionally, because the $create-base argument is set to true, this will
+  also generate the following CSS class
+
+  .u-color-inverted {
+    color: #ffffff;
+  }
+*/
+@include __generate-text-color-opacities($white, 'inverted', true);
+
+/*
+ * Generates utility classes for adding alpha values to the primary
+ * text color
+ *
+  This will generate the following CSS classes:
+  .u-color-90 {}
+  .u-color-80 {}
+  .u-color-70 {}
+  .u-color-60 {}
+  .u-color-50 {}
+
+  The number at the end corresponds to the alpha value applied. e.g.
+
+  .u-color-80 {
+    color: rgba(15, 15, 17, 0.8);
+  }
+
+  .u-color-50 {
+    color: rgba(15, 15, 17, 0.5);
+  }
+*/
+@include __generate-text-color-opacities($dark-grey-900);

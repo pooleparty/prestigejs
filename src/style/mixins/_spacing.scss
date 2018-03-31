@@ -1,0 +1,28 @@
+@import 'size';
+
+$__spacer-map: (
+  ma: (margin-top, margin-bottom, margin-left, margin-right),
+  mv: (margin-top, margin-bottom),
+  mt: (margin-top),
+  mb: (margin-bottom),
+  mh: (margin-left, margin-right),
+  ml: (margin-left),
+  mr: (margin-right),
+  pa: (padding-top, padding-bottom, padding-left, padding-right),
+  pv: (padding-top, padding-bottom),
+  pt: (padding-top),
+  pb: (padding-bottom),
+  ph: (padding-left, padding-right),
+  pl: (padding-left),
+  pr: (padding-right)
+);
+
+@mixin __generateSizeUtilityClassesForSize($size) {
+  @each $spacer-key, $css-targets in $__spacer-map {
+    .u-#{$spacer-key}-#{$size} {
+      @each $css-target in $css-targets {
+        #{$css-target}: __px-to-rem($size) !important;
+      }
+    }
+  }
+}

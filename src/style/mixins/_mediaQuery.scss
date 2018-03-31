@@ -1,0 +1,56 @@
+@import '../settings/vars';
+@import 'spacing';
+
+@mixin media-query($min-width: 0, $min-height: 0) {
+  @media screen and (min-width: #{__px-to-rem($min-width)}) and (min-height: #{__px-to-rem($min-height)}) {
+    @content;
+  }
+}
+
+@mixin __extract-device-demensions-for-media-query($device) {
+  @if map-has-key($__media-query-devices, $device) {
+    $dimensions: map-get($__media-query-devices, $device);
+    @include media-query(nth($dimensions, 1), nth($dimensions, 2)) {
+      @content;
+    }
+  }
+  @else {
+    @error 'Unsupported device `#{$device}` requested.';
+  }
+}
+
+@mixin iPhone4 {
+  @include __extract-device-demensions-for-media-query(iPhone4) {
+    @content;
+  }
+}
+
+@mixin iPhone5 {
+  @include __extract-device-demensions-for-media-query(iPhone5) {
+    @content;
+  }
+}
+
+@mixin iPhone6 {
+  @include __extract-device-demensions-for-media-query(iPhone6) {
+    @content;
+  }
+}
+
+@mixin iPhone6Plus {
+  @include __extract-device-demensions-for-media-query(iPhone6Plus) {
+    @content;
+  }
+}
+
+@mixin iPhone7 {
+  @include __extract-device-demensions-for-media-query(iPhone7) {
+    @content;
+  }
+}
+
+@mixin iPhone7Plus {
+  @include __extract-device-demensions-for-media-query(iPhone7Plus) {
+    @content;
+  }
+}

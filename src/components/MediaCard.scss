@@ -1,0 +1,26 @@
+@import "../style/mixins/size";
+@import "../style/mixins/typography";
+
+$__media-card-width: 310;
+
+.media-card {
+  width: __px-to-rem($__media-card-width);
+  padding: __px-to-rem(60) __px-to-rem(30) __px-to-rem(35);
+
+  .card__label + & {
+    padding-top: __px-to-rem(38);
+  }
+}
+
+.media-card__image {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: __px-to-rem(35);
+}
+
+.media-card__content {
+  @include __type(t4);
+  text-align: center;
+}

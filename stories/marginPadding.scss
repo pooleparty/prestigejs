@@ -1,0 +1,18 @@
+@import './mixins';
+
+.size {
+  margin: 10px 0;
+}
+
+.size--padding {
+  background-color: $green-400;
+}
+
+.size--margin {
+  background-color: $orange-300;
+}
+
+.size__content {
+  background-color: $blue-400;
+  padding: 3px;
+}

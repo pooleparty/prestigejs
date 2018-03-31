@@ -1,0 +1,60 @@
+$sticky-nav-height: (
+  (): 50,
+  (min-width: 375, min-height: 667): 80
+);
+
+// Typography
+$Muli: 'Muli', sans-serif;
+$base-font-size: 16;
+$base-leading: 25;
+$base-line-height: $base-leading / $base-font-size; // 1.5625;
+
+$__type-large-scaler: 1.3571428571;
+$__type-base-scaler: 1;
+
+$__minimum-responsive-mobile-type-size: $base-font-size;
+$__maximim-responsive-mobile-type-size: 28;
+$__responsive-type-sizes: (
+  t-jumbo: (size: 50, scaler: $__type-large-scaler),
+  t1: (size: 38, scaler: $__type-large-scaler),
+  t2: (size: 30, scaler: $__type-large-scaler),
+  t3: (size: 22, scaler: $__type-large-scaler),
+  t4: (size: 18, scaler: $__type-large-scaler),
+  t5: (size: 16, scaler: $__type-base-scaler),
+  t6: (size: 14, scaler: $__type-base-scaler),
+  t7: (size: 12, scaler: $__type-base-scaler)
+);
+
+$box-shadow-color: rgba(147, 126, 96, 0.2);
+
+// Layout
+$__media-card-grid-breakpoint: 1100px;
+$top-z-index: 9999;
+
+// Card
+// Chrome doesn't appear to create uniform round circles when the diamter is an odd number.
+$__card-number-diameter: 44;
+$__card-label-y-offset: 18;
+$__card-label-x-offset: 17;
+$__card-top-margin: $__card-number-diameter/2;
+
+// Media query
+$__media-query-devices: (
+  iPhone4: (320, 480),
+  iPhone5: (320, 568),
+  iPhone6: (375, 667),
+  iPhone6Plus: (414, 736),
+  iPhone7: (375, 667),
+  iPhone7Plus: (414, 736),
+  iPad: (768, 1024)
+);
+
+$__media-breakpoint: 900;
+$__media-max-width: 965;
+$__media-gutter: 40;
+$__media-bottom-margin: (
+  small: 20,
+  default: 40,
+  large: 60
+);
+$__media-body-stacked-max-width: 515;

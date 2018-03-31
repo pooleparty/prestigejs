@@ -1,0 +1,12 @@
+@import '../style/settings/colors';
+@import '../style/mixins/size';
+@import '../style/mixins/typography';
+
+.card__badge {
+  @include __type(t7);
+  padding: __px-to-rem(9) __px-to-rem(20) __px-to-rem(8);
+  text-transform: uppercase;
+  color: $white;
+  border-radius: __px-to-rem(4);
+  background-color: $blue;
+}

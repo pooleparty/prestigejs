@@ -1,0 +1,14 @@
+@import '../style/mixins/mediaQuery';
+@import '../style/mixins/size';
+
+.feature__description {
+  max-width: __px-to-rem(380);
+
+  @include media-query(620) {
+    max-width: __px-to-rem(300);
+  }
+}
+
+.feature__title + .feature__description {
+  margin-top: __px-to-rem(15);
+}

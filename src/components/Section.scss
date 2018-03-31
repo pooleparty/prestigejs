@@ -1,0 +1,39 @@
+@import '../style/mixins/size';
+
+.section {
+  padding-right: __px-to-rem(30);
+  padding-left: __px-to-rem(30);
+}
+
+.section--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__content {
+  max-width: __px-to-rem(900);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.section--sm {
+  padding-top: __px-to-rem(40);
+  padding-bottom: __px-to-rem(40);
+}
+
+.section--md {
+  padding-top: __px-to-rem(60);
+  padding-bottom: __px-to-rem(60);
+}
+
+.section--lg {
+  padding-top: __px-to-rem(100);
+  padding-bottom: __px-to-rem(100);
+}
+
+.section--xl {
+  padding-top: __px-to-rem(120);
+  padding-bottom: __px-to-rem(120);
+}

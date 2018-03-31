@@ -1,0 +1,32 @@
+@import '../settings/vars';
+@import '../settings/colors';
+@import '../mixins/size';
+
+html {
+  font-family: $Muli;
+  font-size: $base-font-size/16 * 100%;
+  color: $dark-grey-900;
+  background-color: $white;
+}
+
+body {
+  font-family: $Muli;
+  font-size: __px-to-rem($base-font-size);
+  line-height: $base-line-height;
+}
+
+a {
+  color: $blue;
+}
+
+p {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+}

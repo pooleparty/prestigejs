@@ -1,0 +1,140 @@
+@import '../settings/vars';
+@import 'size';
+@import 'mediaQuery';
+
+/*
+ * Loops over all the various $__responsive-type-sizes values and generates selectors based on the key
+ * e.g.
+
+.t3 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: normal;
+  font-size: 1.375rem;
+  line-height: 1.45455;
+}
+
+ * These are only generated for type faces with a scaler greater than 1
+
+.t3-fluid {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5625;
+}
+
+@media screen and (min-height: 0rem) and (min-width: 48rem) {
+  .t3-fluid {
+    font-size: 1.375rem;
+    line-height: 1.45455;
+  }
+}
+ */
+@mixin __generate-responsive-type-selectors() {
+  @each $key, $properties in $__responsive-type-sizes {
+    $properties: map-get($__responsive-type-sizes, $key);
+    $scaler: map-get($properties, scaler);
+
+    $selector-rwd: #{'.#{"" + $key}-fluid'};
+    $selector-fixed: #{'.#{"" + $key}'};
+
+    #{$selector-fixed} {
+      @include __type($key);
+      margin-top: 0;
+      margin-bottom: 0.5em;
+      font-weight: normal;
+    }
+
+    @if ($scaler > 1) {
+      #{$selector-rwd} {
+        @include __fluid-type($key);
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@mixin __fluid-type($key) {
+  @include __type($key, true);
+}
+
+@mixin __type($key, $make-responsive: false) {
+  $desktop-type-size: __type-size($key);
+  $scaler: __type-scaler($key);
+  $mobile-type-size: __compute-mobile-type-size($desktop-type-size, $scaler);
+  $mobile-dimensions: map-get($__media-query-devices, iPhone6);
+  $lower-clamp-size: nth($mobile-dimensions, 1);
+
+  @if ($make-responsive) {
+    font-size: __px-to-rem($mobile-type-size);
+    line-height: __compute-relative-line-height($mobile-type-size);
+
+    $scaling-factor: ($mobile-type-size/$lower-clamp-size) * 100;
+    $upper-clamp-size: (__strip-unit($desktop-type-size) / ($scaling-factor/100));
+
+    @include media-query($lower-clamp-size) {
+      font-size: #{$scaling-factor}vw;
+    }
+
+    @include media-query($upper-clamp-size) {
+      font-size: __px-to-rem($desktop-type-size);
+      line-height: __compute-relative-line-height($desktop-type-size);
+    }
+  }
+  @else {
+    font-size: __px-to-rem($desktop-type-size);
+    line-height: __compute-relative-line-height($desktop-type-size);
+  }
+}
+
+@function __type-size($key) {
+  $properties: map-get($__responsive-type-sizes, $key);
+  @return map-get($properties, size);
+}
+
+@function __type-scaler($key) {
+  $properties: map-get($__responsive-type-sizes, $key);
+  @return map-get($properties, scaler);
+}
+
+@function __compute-mobile-type-size($desktop-type-size, $scaler, $min-size: $__minimum-responsive-mobile-type-size, $max-size: $__maximim-responsive-mobile-type-size) {
+  $mobile-type-size: round($desktop-type-size/$scaler);
+
+  /*
+   * If the original size was less than the min size already, ignore this line
+   * Otherwise, if the computed mobile type size is smaller than our minimum size (16), then make the minimum size 16
+   */
+  @if ($mobile-type-size < $min-size and $desktop-type-size > $min-size) {
+    $mobile-type-size: $min-size;
+  }
+  @else if ($mobile-type-size > $max-size) {
+    $mobile-type-size: $max-size;
+  }
+
+  @return $mobile-type-size;
+}
+
+@function __compute-relative-line-height($font-size) {
+  @if ($font-size < 18) {
+    @return $base-line-height;
+  }
+  @else if ($font-size < 22) {
+    @return 1.5;
+  }
+  @else if ($font-size < 24) {
+    @return 1.4545454545;
+  }
+  @else if ($font-size < 38) {
+    @return 1.3333333333;
+  }
+  @else {
+    @return 1.1052631579;
+  }
+}
+
+@mixin bold {
+  font-weight: 700;
+}

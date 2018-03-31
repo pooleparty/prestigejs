@@ -1,0 +1,3 @@
+@import '../mixins/typography';
+
+@include __generate-responsive-type-selectors();

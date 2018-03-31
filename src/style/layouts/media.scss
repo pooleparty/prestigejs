@@ -1,0 +1,91 @@
+@import '../settings/vars';
+@import '../mixins/size';
+@import '../mixins/mediaQuery';
+
+.media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: __px-to-rem($__media-max-width);
+  margin-bottom: __px-to-rem(map-get($__media-bottom-margin, default));
+
+  @include media-query($__media-breakpoint) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.media--close {
+  margin-bottom: __px-to-rem(map-get($__media-bottom-margin, small));
+}
+
+.media--far {
+  margin-bottom: __px-to-rem(map-get($__media-bottom-margin, large));
+}
+
+.media--center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.media__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: __px-to-rem($__media-body-stacked-max-width);
+  margin-bottom: __px-to-rem($__media-gutter);
+
+  @include media-query($__media-breakpoint) {
+    align-items: flex-start;
+    width: 50%;
+    max-width: none;
+    margin-bottom: 0;
+    padding-right: __px-to-rem($__media-gutter);
+
+    .media--reverse & {
+      order: 1;
+      padding-right: 0;
+      padding-left: __px-to-rem($__media-gutter);
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.media__media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .media--reverse & {
+    justify-content: flex-start;
+  }
+
+  > img,
+  > video,
+  > audio {
+    display: block;
+    max-width: 100%;
+  }
+
+  @include media-query($__media-breakpoint) {
+    width: 50%;
+  }
+}
+
+@include media-query($__media-breakpoint) {
+  .media__media--wide,
+  .media__body--wide {
+    width: (2/3) * 100%;
+  }
+
+  .media__media--narrow,
+  .media__body--narrow {
+    width: (1/3) * 100%;
+  }
+}

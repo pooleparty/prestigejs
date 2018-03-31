@@ -1,0 +1,15 @@
+.icon__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon__subcontainer {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: 25%;
+}
+
+.icon__title {
+  padding-left: 15px;
+}

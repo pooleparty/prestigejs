@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
+// @mixin Muli() {
+//   $font-family: 'Muli';
+//   $font-style: normal;
+//   $font-directory: 'https://fonts.googleapis.com/css?family=';
+
+//   $font-weights: (
+//     300: 'Light',
+//     700: 'Bold',
+//   );
+
+//   @each $font-weight, $font-name in $font-weights {
+//     @font-face {
+//       font-family: $font-family;
+//       font-style: $font-style;
+//       font-weight: $font-weight;
+//       src: url('#{$font-directory}Muli:#{$font-name}_modified.woff') format('woff');
+//     }
+//   }
+// }
+
+// @include Muli();
