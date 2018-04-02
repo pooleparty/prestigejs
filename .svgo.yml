@@ -1,0 +1,10 @@
+plugins:
+  - removeStyleElement: true
+  - removeDimensions: true
+  - removeViewBox: false
+  - removeAttrs:
+      attrs:
+        - 'id'
+        - 'path:class'
+        - 'path:fill-rule'
+        - 'path:clip-rule'

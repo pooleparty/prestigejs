@@ -7,6 +7,7 @@ import getSVGFromManifest from '../utils/getSVGFromManifest';
 import './Icon.scss';
 
 export const ICON_SIZES = {
+  xxs: 12,
   xs: 16,
   sm: 25,
   md: 32,
