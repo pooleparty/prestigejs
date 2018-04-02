@@ -51,7 +51,7 @@ class AccordionTab extends Component {
     });
     const headerId = `${this.id}_header`;
     const ariaControls = `${this.id}_content`;
-    const icon = selected ? 'angle-arrow-down' : 'angle-arrow-pointing-to-right';
+    const icon = selected ? 'chevron-down' : 'chevron-right';
 
     return (
       <div className={tabHeaderClass}>
