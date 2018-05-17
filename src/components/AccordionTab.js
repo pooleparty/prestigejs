@@ -3,18 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from './Icon';
 import { generateUniqueId } from '../utils/componentUtils';
+
 import './AccordionTab.scss';
 
 class AccordionTab extends Component {
   static displayName = 'Accordion.Tab';
-
-  static defaultProps = {
-    id: null,
-    header: null,
-    disabled: false,
-    headerClassName: null,
-    contentClassName: null,
-  };
 
   static propTypes = {
     id: PropTypes.string,
@@ -23,6 +16,14 @@ class AccordionTab extends Component {
     disabled: PropTypes.bool,
     headerClassName: PropTypes.string,
     contentClassName: PropTypes.string,
+  };
+
+  static defaultProps = {
+    id: null,
+    header: null,
+    disabled: false,
+    headerClassName: null,
+    contentClassName: null,
   };
 
   static contextTypes = {

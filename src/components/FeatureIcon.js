@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './FeatureIcon.scss';
 
-function FeatureIcon(props) {
-  const { wrap, className, tag: Tag, ...rest } = props;
+class FeatureIcon extends Component {
+  static displayName = 'Feature.Icon';
 
-  const classes = classNames(className, 'feature__icon', { 'feature__icon--circle': wrap });
+  static propTypes = {
+    wrap: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
 
-  return <Tag {...rest} className={classes} />;
+  static defaultProps = {
+    tag: 'div',
+  };
+
+  render() {
+    const { wrap, className, tag: Tag, ...rest } = this.props;
+
+    const classes = classNames(className, 'feature__icon', { 'feature__icon--circle': wrap });
+
+    return <Tag {...rest} className={classes} />;
+  }
 }
-
-FeatureIcon.propTypes = {
-  wrap: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
-
-FeatureIcon.defaultProps = {
-  tag: 'div',
-};
-
-FeatureIcon.displayName = 'Feature.Icon';
 
 export default FeatureIcon;

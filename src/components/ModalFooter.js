@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import './ModalFooter.scss';
 
-const ModalFooter = ({ tag: Tag, className, ...rest }) => {
-  const classes = classNames(['modal__footer', className]);
+class ModalFooter extends Component {
+  static displayName = 'Modal.Footer';
 
-  return <Tag {...rest} className={classNames(className, classes)} />;
-};
+  static propTypes = {
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
 
-ModalFooter.propTypes = {
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
+  static defaultProps = {
+    tag: 'div',
+  };
 
-ModalFooter.defaultProps = {
-  tag: 'div',
-};
+  render() {
+    const { tag: Tag, className, ...rest } = this.props;
 
-ModalFooter.displayName = 'Modal.Footer';
+    const classes = classNames(['modal__footer', className]);
+
+    return <Tag {...rest} className={classNames(className, classes)} />;
+  }
+}
 
 export default ModalFooter;

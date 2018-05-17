@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -22,29 +22,30 @@ const divider = (
   </svg>
 );
 
-function BreadcrumbItem(props) {
-  const { children, className, tag: Tag, ...rest } = props;
+class BreadcrumbItem extends Component {
+  static displayName = 'Breadcrumb.Item';
 
-  const classes = classNames(className, 'breadcrumb-item');
+  static propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
 
-  return (
-    <Tag {...rest} className={classes}>
-      {divider}
-      {children}
-    </Tag>
-  );
+  static defaultProps = {
+    tag: 'li',
+  };
+
+  render() {
+    const { children, className, tag: Tag, ...rest } = this.props;
+
+    const classes = classNames(className, 'breadcrumb-item');
+
+    return (
+      <Tag {...rest} className={classes}>
+        {divider}
+        {children}
+      </Tag>
+    );
+  }
 }
-
-BreadcrumbItem.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
-
-BreadcrumbItem.defaultProps = {
-  tag: 'li',
-};
-
-BreadcrumbItem.displayName = 'Breadcrumb.Item';
-
 export default BreadcrumbItem;

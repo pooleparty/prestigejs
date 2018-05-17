@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './ButtonToolbar.scss';
 
-function ButtonToolbar(props) {
-  const { className, tag: Tag, ...rest } = props;
+class ButtonToolbar extends Component {
+  static displayName = 'ButtonToolbar';
 
-  const classes = classNames(className, 'button-toolbar');
+  static propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
 
-  return <Tag {...rest} className={classes} />;
+  static defaultProps = {
+    tag: 'div',
+  };
+
+  render() {
+    const { className, tag: Tag, ...rest } = this.props;
+
+    const classes = classNames(className, 'button-toolbar');
+
+    return <Tag {...rest} className={classes} />;
+  }
 }
-
-ButtonToolbar.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
-
-ButtonToolbar.defaultProps = {
-  tag: 'div',
-};
-
-ButtonToolbar.displayName = 'ButtonToolbar';
 
 export default ButtonToolbar;

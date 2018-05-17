@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { generateUniqueId } from '../utils/componentUtils';
 import AccordionTab from './AccordionTab';
+import { generateUniqueId } from '../utils/componentUtils';
 
 import './Accordion.scss';
 
 class Accordion extends Component {
   static displayName = 'Accordion';
 
-  static defaultProps = {
-    id: null,
-    activeId: null,
-    className: null,
-    multiple: false,
-    onTabOpen: null,
-    onTabClose: null,
-  };
+  static Tab = AccordionTab;
 
   static propTypes = {
     id: PropTypes.string,
@@ -26,6 +19,15 @@ class Accordion extends Component {
     multiple: PropTypes.bool,
     onTabOpen: PropTypes.func,
     onTabClose: PropTypes.func,
+  };
+
+  static defaultProps = {
+    id: null,
+    activeId: null,
+    className: null,
+    multiple: false,
+    onTabOpen: null,
+    onTabClose: null,
   };
 
   static childContextTypes = {
@@ -109,7 +111,5 @@ class Accordion extends Component {
     );
   }
 }
-
-Accordion.Tab = AccordionTab;
 
 export default Accordion;

@@ -20,5 +20,6 @@ module.exports = {
     'jsx-a11y/label-has-for': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/require-default-props': 'off',
+    'react/prefer-stateless-function': 'off',
   },
 };

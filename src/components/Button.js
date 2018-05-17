@@ -5,6 +5,26 @@ import classNames from 'classnames';
 import './Button.scss';
 
 class Button extends Component {
+  static displayName = 'Button';
+
+  static propTypes = {
+    block: PropTypes.bool,
+    color: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error']),
+    disabled: PropTypes.bool,
+    height: PropTypes.oneOf(['short', 'default', 'tiny']),
+    hollow: PropTypes.bool,
+    onClick: PropTypes.func,
+    width: PropTypes.oneOf(['thin', 'default', 'wide']),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
+
+  static defaultProps = {
+    color: 'default',
+    tag: 'button',
+  };
+
   onClick = (event) => {
     if (this.props.disabled) {
       event.preventDefault();
@@ -39,25 +59,5 @@ class Button extends Component {
     return <Tag {...rest} className={classes} onClick={this.onClick} />;
   }
 }
-
-Button.propTypes = {
-  block: PropTypes.bool,
-  color: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error']),
-  disabled: PropTypes.bool,
-  height: PropTypes.oneOf(['short', 'default', 'tiny']),
-  hollow: PropTypes.bool,
-  onClick: PropTypes.func,
-  width: PropTypes.oneOf(['thin', 'default', 'wide']),
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
-
-Button.defaultProps = {
-  color: 'default',
-  tag: 'button',
-};
-
-Button.displayName = 'Button';
 
 export default Button;

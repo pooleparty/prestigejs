@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './Section.scss';
 
-function Section(props) {
-  const { size, className, tag: Tag, ...rest } = props;
+class Section extends Component {
+  static displayName = 'Section';
 
-  const classes = classNames(className, 'section', { [`section--${size}`]: !!size });
+  static propTypes = {
+    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
 
-  return <Tag {...rest} className={classes} />;
+  static defaultProps = {
+    tag: 'section',
+  };
+
+  render() {
+    const { size, className, tag: Tag, ...rest } = this.props;
+
+    const classes = classNames(className, 'section', { [`section--${size}`]: !!size });
+
+    return <Tag {...rest} className={classes} />;
+  }
 }
-
-Section.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
-
-Section.defaultProps = {
-  tag: 'section',
-};
-
-Section.displayName = 'Section';
 
 export default Section;

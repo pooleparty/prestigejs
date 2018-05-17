@@ -16,6 +16,23 @@ export const ICON_SIZES = {
 };
 
 class Icon extends PureComponent {
+  static displayName = 'Icon';
+
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    size: PropTypes.oneOf(Object.keys(ICON_SIZES)),
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  };
+
+  static defaultProps = {
+    className: '',
+    size: 'md',
+    width: undefined,
+    height: undefined,
+  };
+
   render() {
     const {
       name,
@@ -48,22 +65,5 @@ class Icon extends PureComponent {
     return createSVGElement(svg);
   }
 }
-
-Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(ICON_SIZES)),
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-};
-
-Icon.defaultProps = {
-  className: '',
-  size: 'md',
-  width: undefined,
-  height: undefined,
-};
-
-Icon.displayName = 'Icon';
 
 export default Icon;

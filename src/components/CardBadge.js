@@ -1,27 +1,29 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './CardBadge.scss';
 
-function CardBadge(props) {
-  const { className, tag: Tag, ...rest } = props;
+class CardBadge extends Component {
+  static displayName = 'Card.Badge';
 
-  const classes = classNames(className, 'card__badge');
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  };
 
-  return <Tag {...rest} className={classes} />;
+  static defaultProps = {
+    tag: 'div',
+  };
+
+  render() {
+    const { className, tag: Tag, ...rest } = this.props;
+
+    const classes = classNames(className, 'card__badge');
+
+    return <Tag {...rest} className={classes} />;
+  }
 }
-
-CardBadge.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-};
-
-CardBadge.defaultProps = {
-  tag: 'div',
-};
-
-CardBadge.displayName = 'Card.Badge';
 
 export default CardBadge;

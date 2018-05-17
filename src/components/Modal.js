@@ -5,10 +5,16 @@ import ModalHeader from './ModalHeader';
 import ModalTitle from './ModalTitle';
 import ModalBody from './ModalBody';
 import ModalFooter from './ModalFooter';
+
 import './Modal.scss';
 
 class Modal extends Component {
   static displayName = 'Modal';
+
+  static Header = ModalHeader;
+  static Title = ModalTitle;
+  static Body = ModalBody;
+  static Footer = ModalFooter;
 
   static propTypes = {
     children: PropTypes.node,
@@ -74,10 +80,5 @@ class Modal extends Component {
     );
   }
 }
-
-Modal.Header = ModalHeader;
-Modal.Title = ModalTitle;
-Modal.Body = ModalBody;
-Modal.Footer = ModalFooter;
 
 export default Modal;
