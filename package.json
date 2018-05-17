@@ -7,9 +7,7 @@
     "node": ">=8.0.0",
     "npm": ">=5.0.0"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pooleparty/prestigejs.git"
@@ -44,7 +42,7 @@
     "clean:coverage": "rimraf coverage",
     "clean:dist": "rimraf dist",
     "clean": "run-p clean:*",
-    "prepush": "run-s lint test",
+    "prepush": "run-s lint",
     "prepublishOnly": "npm run dist:prod",
     "build-storybook": "build-storybook",
     "svgo": "svgo --pretty --indent=2 --folder=src/icons/ --config=.svgo.yml",
@@ -119,34 +117,7 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/components/**/*.js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules",
-      "__vrts__"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "setupFiles": [
-      "./src/__setupTests.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
-  },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "prettier-eslint --write",
-      "eslint --fix",
-      "git add"
-    ]
+    "*.{js,jsx}": ["prettier-eslint --write", "eslint --fix", "git add"]
   }
 }
