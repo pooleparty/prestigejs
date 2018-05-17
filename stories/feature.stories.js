@@ -7,7 +7,7 @@ import './styles.scss';
 const FeatureGridFeature = () => (
   <Feature>
     <Feature.Icon>
-      <Icon name="dot-circle" />
+      <Icon name="circle-outline" />
     </Feature.Icon>
     <Feature.Title>The Feature Title</Feature.Title>
     <Feature.Description>
@@ -19,7 +19,7 @@ const FeatureGridFeature = () => (
 const InlineFeatureGridFeature = () => (
   <Feature inline>
     <Feature.Icon>
-      <Icon name="dot-circle" />
+      <Icon name="circle-outline" />
     </Feature.Icon>
     <Feature.Title>The Feature Title</Feature.Title>
   </Feature>
@@ -29,7 +29,7 @@ storiesOf('Feature', module)
   .add('title only', () => (
     <Feature>
       <Feature.Icon>
-        <Icon name="dot-circle" />
+        <Icon name="circle-outline" />
       </Feature.Icon>
       <Feature.Title>The Feature Title</Feature.Title>
     </Feature>
@@ -37,7 +37,7 @@ storiesOf('Feature', module)
   .add('description only', () => (
     <Feature>
       <Feature.Icon>
-        <Icon name="dot-circle" />
+        <Icon name="circle-outline" />
       </Feature.Icon>
       <Feature.Description>
         This is the description that goes with the feature. Learn all about it!
@@ -47,7 +47,7 @@ storiesOf('Feature', module)
   .add('title and description', () => (
     <Feature>
       <Feature.Icon>
-        <Icon name="dot-circle" />
+        <Icon name="circle-outline" />
       </Feature.Icon>
       <Feature.Title>The Feature Title</Feature.Title>
       <Feature.Description>
@@ -58,7 +58,7 @@ storiesOf('Feature', module)
   .add('inline', () => (
     <Feature inline>
       <Feature.Icon>
-        <Icon name="dot-circle" />
+        <Icon name="circle-outline" />
       </Feature.Icon>
       <Feature.Title>Inline Feature Title</Feature.Title>
     </Feature>

@@ -7,16 +7,16 @@ import './styles.scss';
 storiesOf('ItemList', module).add('itemList', () => (
   <ItemList>
     <ItemList.Item>
-      <Icon name="dot-circle" />Item 1
+      <Icon name="circle-outline" />Item 1
     </ItemList.Item>
     <ItemList.Item>
-      <Icon name="dot-circle" />Item 2
+      <Icon name="circle-outline" />Item 2
     </ItemList.Item>
     <ItemList.Item>
-      <Icon name="dot-circle" />Item 3
+      <Icon name="circle-outline" />Item 3
     </ItemList.Item>
     <ItemList.Item>
-      <Icon name="dot-circle" />Item 4
+      <Icon name="circle-outline" />Item 4
     </ItemList.Item>
   </ItemList>
 ));

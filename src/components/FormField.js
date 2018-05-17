@@ -4,7 +4,6 @@ import difference from 'lodash/difference';
 import includes from 'lodash/includes';
 import omit from 'lodash/omit';
 import union from 'lodash/union';
-
 import Checkbox from './Checkbox';
 import Form from './Form';
 import FormGroup from './FormGroup';
@@ -16,6 +15,32 @@ import Textarea from './Textarea';
 import './FormField.scss';
 
 class FormField extends PureComponent {
+  static displayName = 'FormField';
+
+  static propTypes = {
+    className: PropTypes.string,
+    feedbackText: PropTypes.string,
+    id: PropTypes.string,
+    index: PropTypes.number,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string,
+      }),
+    ),
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    valid: PropTypes.bool,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  };
+
+  static defaultProps = {
+    value: '',
+  };
+
   onChange = event => this.props.onChange(event.target.value, this.props.index);
 
   onCheckboxChange = (event) => {
@@ -121,31 +146,5 @@ class FormField extends PureComponent {
     );
   }
 }
-
-FormField.propTypes = {
-  className: PropTypes.string,
-  feedbackText: PropTypes.string,
-  id: PropTypes.string,
-  index: PropTypes.number,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.string,
-    }),
-  ),
-  placeholder: PropTypes.string,
-  type: PropTypes.string,
-  valid: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-};
-
-FormField.defaultProps = {
-  value: '',
-};
-
-FormField.displayName = 'FormField';
 
 export default FormField;

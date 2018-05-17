@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function Textarea(props) {
-  const { valid, className, ...rest } = props;
+class Textarea extends Component {
+  static displayName = 'Textarea';
 
-  const classes = classNames(className, 'input', {
-    'input--valid': valid === true,
-    'input--invalid': valid === false,
-  });
+  static propTypes = {
+    valid: PropTypes.bool,
+    className: PropTypes.string,
+  };
 
-  return <textarea {...rest} className={classes} />;
+  render() {
+    const { valid, className, ...rest } = this.props;
+
+    const classes = classNames(className, 'input', {
+      'input--valid': valid === true,
+      'input--invalid': valid === false,
+    });
+
+    return <textarea {...rest} className={classes} />;
+  }
 }
-
-Textarea.propTypes = {
-  valid: PropTypes.bool,
-  className: PropTypes.string,
-};
-
-Textarea.displayName = 'Textarea';
 
 export default Textarea;
