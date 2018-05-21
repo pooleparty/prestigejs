@@ -1,0 +1,17 @@
+@import '../style/mixins/size';
+@import '../style/settings/colors';
+
+.nav-link {
+  padding: __px-to-rem(10) __px-to-rem(20);
+  font-size: __px-to-rem(14);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 200ms ease-in-out;
+}
+
+.nav-link:hover {
+  color: $blue;
+}

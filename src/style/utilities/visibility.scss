@@ -2,3 +2,27 @@
 .u-hidden {
   display: none !important;
 }
+
+@media only screen and (max-width: 30rem) {
+  .u-hidden-xs {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 48rem) {
+  .u-hidden-sm {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 64rem) {
+  .u-hidden-md {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 75rem) {
+  .u-hidden-lg {
+    display: none !important;
+  }
+}

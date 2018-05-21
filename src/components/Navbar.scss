@@ -1,0 +1,24 @@
+@import '../style/mixins/size';
+@import '../style/settings/colors';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: __px-to-rem(64);
+}
+
+.navbar--dark {
+  background-color: $dark-grey-900;
+  color: $white;
+}
+
+.navbar--light {
+  background-color: $light-grey-200;
+  color: $dark-grey-900;
+}
+
+.navbar--sticky {
+  position: sticky;
+  top: -1px;
+}

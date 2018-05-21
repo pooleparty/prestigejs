@@ -1,0 +1,18 @@
+.app-header {
+  padding: 100px 0;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #2ba8e0;
+  color: #e2f5fd;
+}
+
+.app-section {
+  padding: 200px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.app-section:nth-child(even) {
+  background: #d9d9d9;
+}

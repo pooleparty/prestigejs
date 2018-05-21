@@ -59,13 +59,13 @@ function createExample(sizes, dimensionKey, type) {
   );
 }
 
-const paddingStory = storiesOf('Padding');
+const paddingStory = storiesOf('Padding', module);
 
 allDimensions.forEach(({ key, name }) => {
   paddingStory.add(name, () => createExample(allSizes, key, 'p'));
 });
 
-const marginStory = storiesOf('Margin');
+const marginStory = storiesOf('Margin', module);
 
 allDimensions.forEach(({ key, name }) => {
   marginStory.add(name, () => createExample(allSizes, key, 'm'));
